@@ -1,0 +1,125 @@
+{
+  "kind": "build_request",
+  "title": "RK Overseas Home Appliances Store",
+  "projectName": "RK Overseas",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Create a backend data model and actor for the home appliances store, including: Product (id, name, description, price, category, imageUrl, inStock, brand, model), Category (id, name, description), and Inquiry (id, name, email, phone, message, productId, timestamp). Implement CRUD operations for products and categories, and an addInquiry function.",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "RK overseas home appliances store"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Products can be created, read, updated, and deleted",
+        "Categories can be created and listed",
+        "Customer inquiries can be submitted with optional product reference",
+        "All data persists across canister upgrades"
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Build a multi-page frontend for the RK Overseas Home Appliances Store with the following pages: (1) Home/Landing page with hero banner, featured products, and store highlights; (2) Products/Shop page with category filtering, search, and product grid; (3) Product Detail page with full description, price, availability, brand/model info, and an inquiry button; (4) Categories page listing all appliance categories; (5) Contact/Inquiry page with a form for customer inquiries (name, email, phone, message, optional product reference); (6) About page with store information. Include a persistent navbar with the RK Overseas logo/name, navigation links, and a footer with contact details.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "RK overseas home appliances store"
+        ]
+      },
+      "acceptanceCriteria": [
+        "All pages are accessible via navigation links",
+        "Product grid displays products with image, name, price, and category",
+        "Category filter on shop page filters products in real time",
+        "Search bar filters products by name or brand",
+        "Product detail page shows full product information",
+        "Inquiry form validates required fields and submits to backend",
+        "Navbar and footer are consistent across all pages"
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Seed the backend with realistic sample data: at least 5 product categories (e.g., Kitchen Appliances, Washing Machines, Air Conditioners, Refrigerators, Small Appliances) and at least 12 sample products spread across categories, with realistic brand names, model numbers, prices, and descriptions relevant to overseas home appliances retail.",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "RK overseas home appliances store"
+        ]
+      },
+      "acceptanceCriteria": [
+        "At least 5 categories are pre-loaded on first deploy",
+        "At least 12 products with varied categories are pre-loaded",
+        "Sample data includes realistic brand names and pricing"
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Apply a cohesive visual theme to the entire frontend: use a warm, professional palette centered on deep charcoal, crisp white, and a bold amber/gold accent color. Use clean sans-serif typography, card-based product layouts with subtle shadows, and a modern e-commerce aesthetic that conveys reliability and premium quality for an international home appliances retailer. Enforce the theme consistently across all pages, components, and interactive states.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "RK overseas home appliances store"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Color palette (charcoal, white, amber/gold accent) is applied consistently across all pages",
+        "Typography is uniform and readable across headings and body text",
+        "Product cards have consistent styling with hover effects",
+        "Call-to-action buttons use the accent color",
+        "Theme is visually coherent on both desktop and mobile viewports"
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Generate and display static image assets for the store: a hero banner image for the home page and a store logo. Render these from frontend/public/assets/generated. Use placeholder product images from a consistent visual style for product cards where no specific image is provided.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "RK overseas home appliances store"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Hero banner image is displayed on the home page",
+        "Store logo appears in the navbar",
+        "Product cards display imagery consistently"
+      ]
+    }
+  ],
+  "constraints": [
+    "All Motoko logic must remain in a single backend actor file (backend/main.mo)",
+    "Do not modify any files under frontend/src/hooks/ or frontend/src/components/ui",
+    "No external database or third-party backend integrations"
+  ],
+  "nonGoals": [
+    "User authentication or login system",
+    "Online payment processing or shopping cart checkout",
+    "Real-time inventory management integration",
+    "Admin dashboard for product management via UI",
+    "Shipping or order tracking features"
+  ],
+  "imageRequirements": {
+    "required": [
+      "Wide hero banner showing modern home appliances (refrigerator, washing machine, air conditioner) arranged on a clean background with warm amber lighting and a premium showroom feel (hero-banner.dim_1440x500.png)",
+      "Store logo mark — bold stylized letters 'RK' in amber/gold on a deep charcoal circular badge with a subtle appliance icon element (rk-logo.dim_256x256.png)",
+      "Decorative category tile background — abstract geometric pattern in charcoal and amber tones, suitable as a card background for appliance categories (category-bg.dim_600x400.png)"
+    ],
+    "edits": []
+  }
+}

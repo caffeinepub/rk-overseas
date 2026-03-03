@@ -1,0 +1,16 @@
+{
+  "frontend/src/index.css": "Global styles with OKLCH color system for RK Overseas brand palette, Google Fonts import, and utility component classes — stray `</style>` tag removed.",
+  "frontend/tailwind.config.js": "Tailwind configuration extending the theme with brand colors (charcoal, amber), custom font families (Inter sans-serif, Playfair Display display), custom box shadows for cards and amber glow, and fade-in animation keyframes.",
+  "frontend/src/App.tsx": "Main app component configuring TanStack Router with routes for Home, Products, ProductDetail, Categories, Contact, and About pages, all wrapped in a Layout component with Navbar and Footer.",
+  "frontend/src/hooks/useQueries.ts": "React Query hooks for all backend operations; `useCategory` updated to accept `bigint | undefined` and guard the query with `enabled: id !== undefined` to avoid conditional hook violations.",
+  "frontend/src/components/Navbar.tsx": "Sticky top navigation bar with RK Overseas logo, brand name, desktop nav links, mobile hamburger menu, and a \"Shop Now\" CTA button styled in charcoal with amber accents.",
+  "frontend/src/components/Footer.tsx": "Footer with brand info, quick navigation links, contact details (address, phone, email), copyright notice, and caffeine.ai attribution with UTM tracking.",
+  "frontend/src/components/Layout.tsx": "Simple layout wrapper that composes Navbar, page content (children), and Footer into a full-height flex column.",
+  "frontend/src/components/ProductCard.tsx": "Reusable product card displaying product image (with brand/category fallback mapping), name, brand/model, price, stock status badge, category badge, and a \"View\" button with hover effects.",
+  "frontend/src/pages/Home.tsx": "Home page with hero banner, store highlights grid, featured products section (first 6 products from backend), category quick-links, and a CTA banner linking to contact.",
+  "frontend/src/pages/Products.tsx": "Products/shop page with real-time client-side filtering; `useSearch` moved to top level (outside try/catch) to comply with React hooks rules.",
+  "frontend/src/pages/ProductDetail.tsx": "Product detail page; `useCategory` now called with `product?.category` (which is `bigint | undefined`) instead of a `?? BigInt(0)` fallback, matching the updated hook signature.",
+  "frontend/src/pages/Categories.tsx": "Categories listing page showing all backend categories as cards with icons, gradient backgrounds, product counts, and click-through navigation to filtered products page.",
+  "frontend/src/pages/Contact.tsx": "Contact/inquiry page with React Hook Form; `initialProductId` extraction moved to a plain helper function outside the component, and the unused `err` variable in the catch block removed.",
+  "frontend/src/pages/About.tsx": "About page with hero section, stats bar, mission statement, company values grid, brand list, customer commitments, and dual CTA buttons linking to products and contact pages."
+}

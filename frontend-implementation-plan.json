@@ -1,0 +1,136 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "RK Overseas Home Appliances Store - Frontend Implementation",
+  "requirements": [
+    {
+      "id": "REQ-2",
+      "summary": "Build multi-page frontend with Home, Products, Product Detail, Categories, Contact/Inquiry, and About pages with persistent navbar and footer",
+      "acceptanceCriteria": [
+        "All pages are accessible via navigation links",
+        "Product grid displays products with image, name, price, and category",
+        "Category filter on shop page filters products in real time",
+        "Search bar filters products by name or brand",
+        "Product detail page shows full product information",
+        "Inquiry form validates required fields and submits to backend",
+        "Navbar and footer are consistent across all pages"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Configure React Router with routes for Home (/), Products (/products), Product Detail (/products/:id), Categories (/categories), Contact (/contact), and About (/about). Wrap routes with Layout component containing navbar and footer."
+        },
+        {
+          "path": "frontend/src/components/Layout.tsx",
+          "operation": "create",
+          "description": "Create layout wrapper component with Navbar and Footer. Navbar includes RK Overseas logo (using generated rk-logo.dim_256x256.png from frontend/public/assets/generated/), navigation links to all pages, and responsive mobile menu. Footer displays contact details and store information. Render children between navbar and footer."
+        },
+        {
+          "path": "frontend/src/pages/Home.tsx",
+          "operation": "create",
+          "description": "Create home page with hero banner section displaying generated hero-banner.dim_1440x500.png from frontend/public/assets/generated/, store tagline, and call-to-action button linking to products page. Include featured products section fetching products via getAllProducts backend method and displaying first 6 products in a grid. Add store highlights section with key benefits."
+        },
+        {
+          "path": "frontend/src/pages/Products.tsx",
+          "operation": "create",
+          "description": "Create products/shop page with category filter sidebar, search input, and product grid. Fetch all products via getAllProducts and categories via getAllCategories backend methods. Implement client-side filtering by selected category and search term (matching name or brand). Display products using ProductCard component in responsive grid. Show empty state when no products match filters."
+        },
+        {
+          "path": "frontend/src/pages/ProductDetail.tsx",
+          "operation": "create",
+          "description": "Create product detail page using useParams to get product ID from route. Fetch product via getProduct backend method. Display full product information including image, name, brand, model, description, price, category name (fetch via getCategory), and stock availability. Include 'Make Inquiry' button linking to contact page with productId query parameter pre-filled."
+        },
+        {
+          "path": "frontend/src/pages/Categories.tsx",
+          "operation": "create",
+          "description": "Create categories listing page fetching all categories via getAllCategories backend method. Display each category as a card with name, description, and product count (fetch via getProductsByCategory). Use generated category-bg.dim_600x400.png from frontend/public/assets/generated/ as card background. Make cards clickable to navigate to products page with category pre-filtered."
+        },
+        {
+          "path": "frontend/src/pages/Contact.tsx",
+          "operation": "create",
+          "description": "Create contact/inquiry page with form including name (required), email (required, validated), phone (required), message (required), and hidden productId field (populated from URL query parameter if present). Use React Hook Form for validation. On submit, call addInquiry backend method and show success/error message. Display store contact information alongside form."
+        },
+        {
+          "path": "frontend/src/pages/About.tsx",
+          "operation": "create",
+          "description": "Create about page with store information, mission statement, and company background for RK Overseas Home Appliances. Include sections for store history, product sourcing, and customer commitment. Use card layout with imagery and text content."
+        },
+        {
+          "path": "frontend/src/components/ProductCard.tsx",
+          "operation": "create",
+          "description": "Create reusable product card component accepting product prop. Display product image (use imageUrl or placeholder), name, price formatted as currency, category badge, and availability status. Include hover effects and click handler to navigate to product detail page. Style with card shadow and rounded corners per theme requirements."
+        },
+        {
+          "path": "frontend/src/components/Navbar.tsx",
+          "operation": "create",
+          "description": "Create navbar component with logo (rk-logo.dim_256x256.png from frontend/public/assets/generated/), store name 'RK Overseas', and navigation links (Home, Products, Categories, About, Contact). Implement responsive mobile menu using hamburger icon. Style with deep charcoal background and amber accent for active links."
+        },
+        {
+          "path": "frontend/src/components/Footer.tsx",
+          "operation": "create",
+          "description": "Create footer component displaying store contact information (address, phone, email), quick links to main pages, and copyright notice. Style with charcoal background and white text for contrast."
+        },
+        {
+          "path": "frontend/src/hooks/useProducts.ts",
+          "operation": "create",
+          "description": "Create custom hook to fetch and manage products data. Provide methods to get all products, filter by category, search by term, and fetch single product by ID. Use React Query or useState/useEffect for data fetching and caching. Call backend methods getAllProducts, getProductsByCategory, searchProducts, and getProduct."
+        },
+        {
+          "path": "frontend/src/hooks/useCategories.ts",
+          "operation": "create",
+          "description": "Create custom hook to fetch and manage categories data. Provide methods to get all categories and get single category by ID. Use React Query or useState/useEffect for data fetching and caching. Call backend methods getAllCategories and getCategory."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Apply cohesive visual theme with deep charcoal, crisp white, and bold amber/gold accent colors, clean typography, and card-based layouts",
+      "acceptanceCriteria": [
+        "Color palette (charcoal, white, amber/gold accent) is applied consistently across all pages",
+        "Typography is uniform and readable across headings and body text",
+        "Product cards have consistent styling with hover effects",
+        "Call-to-action buttons use the accent color",
+        "Theme is visually coherent on both desktop and mobile viewports"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Extend Tailwind theme with custom color palette: charcoal (#2B2B2B for backgrounds, #1A1A1A for darker elements), white (#FFFFFF), amber/gold accent (#F59E0B for primary actions, #D97706 for hover states). Add custom typography scale with clean sans-serif font family (use system fonts: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto). Configure box-shadow utilities for card elevation."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Define global styles applying theme colors to body (white background, charcoal text), headings (charcoal, bold weight), and links (amber accent with hover transitions). Set base typography styles for readability. Add utility classes for card styling (subtle shadows, rounded corners, hover lift effect). Define button base styles using amber accent background with hover and active states."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Display generated static image assets (hero banner, store logo, category background) from frontend/public/assets/generated",
+      "acceptanceCriteria": [
+        "Hero banner image is displayed on the home page",
+        "Store logo appears in the navbar",
+        "Product cards display imagery consistently"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/Home.tsx",
+          "operation": "modify",
+          "description": "Reference hero banner image using path /assets/generated/hero-banner.dim_1440x500.png in hero section img src. Ensure image is responsive and covers hero section with appropriate object-fit styling."
+        },
+        {
+          "path": "frontend/src/components/Navbar.tsx",
+          "operation": "modify",
+          "description": "Reference store logo using path /assets/generated/rk-logo.dim_256x256.png in navbar logo img src. Set appropriate width/height for navbar display (e.g., 40px height with auto width). Include alt text 'RK Overseas Logo'."
+        },
+        {
+          "path": "frontend/src/pages/Categories.tsx",
+          "operation": "modify",
+          "description": "Reference category background image using path /assets/generated/category-bg.dim_600x400.png as background image for category cards via inline style or CSS class. Apply appropriate background sizing and positioning."
+        }
+      ]
+    }
+  ]
+}

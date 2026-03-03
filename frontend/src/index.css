@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+
+    /* RK Overseas Brand Palette - Light Mode */
+    --background: 0.98 0.005 85;
+    --foreground: 0.18 0.01 50;
+
+    --card: 1 0 0;
+    --card-foreground: 0.18 0.01 50;
+
+    --popover: 1 0 0;
+    --popover-foreground: 0.18 0.01 50;
+
+    /* Charcoal primary */
+    --primary: 0.22 0.01 50;
+    --primary-foreground: 0.98 0.005 85;
+
+    /* Amber/Gold accent */
+    --amber: 0.72 0.18 65;
+    --amber-dark: 0.62 0.18 65;
+    --amber-light: 0.88 0.12 80;
+
+    --secondary: 0.94 0.01 70;
+    --secondary-foreground: 0.22 0.01 50;
+
+    --muted: 0.94 0.008 70;
+    --muted-foreground: 0.52 0.01 60;
+
+    --accent: 0.72 0.18 65;
+    --accent-foreground: 0.1 0.01 30;
+
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+
+    --border: 0.88 0.01 70;
+    --input: 0.88 0.01 70;
+    --ring: 0.72 0.18 65;
+
+    --chart-1: 0.646 0.222 41.116;
+    --chart-2: 0.6 0.118 184.704;
+    --chart-3: 0.398 0.07 227.392;
+    --chart-4: 0.828 0.189 84.429;
+    --chart-5: 0.769 0.188 70.08;
+
+    --sidebar: 0.985 0 0;
+    --sidebar-foreground: 0.145 0 0;
+    --sidebar-primary: 0.205 0 0;
+    --sidebar-primary-foreground: 0.985 0 0;
+    --sidebar-accent: 0.97 0 0;
+    --sidebar-accent-foreground: 0.205 0 0;
+    --sidebar-border: 0.922 0 0;
+    --sidebar-ring: 0.708 0 0;
+  }
+
+  .dark {
+    --background: 0.14 0.01 50;
+    --foreground: 0.95 0.005 85;
+
+    --card: 0.18 0.01 50;
+    --card-foreground: 0.95 0.005 85;
+
+    --popover: 0.2 0.01 50;
+    --popover-foreground: 0.95 0.005 85;
+
+    --primary: 0.72 0.18 65;
+    --primary-foreground: 0.1 0.01 30;
+
+    --secondary: 0.24 0.01 50;
+    --secondary-foreground: 0.95 0.005 85;
+
+    --muted: 0.24 0.01 50;
+    --muted-foreground: 0.65 0.01 60;
+
+    --accent: 0.72 0.18 65;
+    --accent-foreground: 0.1 0.01 30;
+
+    --destructive: 0.704 0.191 22.216;
+    --destructive-foreground: 0.205 0 0;
+
+    --border: 1 0 0 / 12%;
+    --input: 1 0 0 / 15%;
+    --ring: 0.72 0.18 65;
+
+    --sidebar: 0.205 0 0;
+    --sidebar-foreground: 0.985 0 0;
+    --sidebar-primary: 0.488 0.243 264.376;
+    --sidebar-primary-foreground: 0.985 0 0;
+    --sidebar-accent: 0.269 0 0;
+    --sidebar-accent-foreground: 0.985 0 0;
+    --sidebar-border: 1 0 0 / 10%;
+    --sidebar-ring: 0.439 0 0;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+}
+
+@layer components {
+  .btn-amber {
+    @apply bg-amber text-amber-foreground font-semibold px-6 py-3 rounded-md transition-all duration-200 hover:bg-amber-dark hover:shadow-md active:scale-95 inline-flex items-center gap-2;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-lg;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    @apply text-3xl font-bold text-charcoal;
+  }
+}
